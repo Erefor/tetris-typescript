@@ -1,4 +1,4 @@
-import {COLS, ROWS, COLORS, TETRONOMIOS, Keys, pieceMoves} from "./constants.js";
+import {COLORS, COLS, POINTS, pointsMap, ROWS, TETRONOMIOS} from "./constants.js";
 import {Piece} from "./piece.js";
 
 class Board{
@@ -58,12 +58,21 @@ class Board{
         });
     }
     clearLines() {
+        let lines = 0
         this.grid.forEach((row, y) => {
             if (row.every(value => value > 0)) {
                 this.grid.splice(y, 1);
                 this.grid.unshift(Array(COLS).fill(0));
+                lines++
             }
         });
+        return lines
+    }
+    getLineClearPoints(linesClear: number): number {
+        return  linesClear === 1 ? POINTS.SINGLE :
+                linesClear === 2 ? POINTS.DOUBLE :
+                linesClear === 3 ? POINTS.TRIPLE :
+                    linesClear === 4 ? POINTS.TETRIS : 0;
     }
 }
 

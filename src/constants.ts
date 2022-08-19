@@ -25,6 +25,13 @@ export interface Time {
     level: number,
 }
 
+export interface pointsMap {
+    1: POINTS,
+    2: POINTS,
+    3: POINTS,
+    4: POINTS,
+}
+
 export const COLORS: string[] = [
     'cyan',
     'blue',
@@ -34,6 +41,15 @@ export const COLORS: string[] = [
     'purple',
     'red'
 ];
+
+export enum POINTS  {
+    SINGLE = 100,
+    DOUBLE = 300,
+    TRIPLE = 500,
+    TETRIS = 800,
+    SOFT_DROP = 1,
+    HARD_DROP = 2
+}
 
 export const TETRONOMIOS: number[][][] = [
     [
